@@ -34,9 +34,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          wget https://github.com/coder/code-server/releases/download/v4.94.2-rc.1/code-server_4.94.2-rc.1_amd64.deb -O /tmp/code.deb
-          sudo apt install /tmp/code.deb -y
+          wget https://github.com/coder/code-server/releases/download/v4.94.2-rc.1/code-server_4.94.2-rc.1_amd64.deb -o code.deb
+          sudo apt install ./code.deb -y
           code-server &
-          wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /tmp/cloud
-          chmod +x /tmp/cloud
-          /tmp/cloud --url https://localhost:8080
+          wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+          chmod +x ./cloudflared-linux-amd64
+          ./cloudflared-linux-amd64 --url https://localhost:8080
